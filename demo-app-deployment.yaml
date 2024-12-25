@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: static-webapp
+  template:
+    metadata:
+      labels:
+        app: static-webapp
+    spec:
+      containers:
+      - name: static-webapp
+        image: demoContainerRegistry.azurecr.io/static-web-app:latest
+        ports:
+        - containerPort: 80
